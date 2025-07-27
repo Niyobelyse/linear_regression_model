@@ -12,6 +12,7 @@ class DropoutPredictorApp extends StatelessWidget {
       title: 'Student Dropout Predictor',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: SplashToMain(),
+      debugShowCheckedModeBanner: false, // Add this line
     );
   }
 }
@@ -110,7 +111,7 @@ class _PredictionTabState extends State<PredictionTab> {
     };
     try {
       final response = await http.post(
-        Uri.parse('https://m163hspl-8000.uks1.devtunnels.ms/predict'),
+        Uri.parse('http://127.0.0.1:8000/predict'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(input),
       );
